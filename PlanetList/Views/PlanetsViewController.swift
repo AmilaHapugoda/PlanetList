@@ -28,6 +28,7 @@ class PlanetsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         // Refresh List Navigation Button
         self.navigationItem.rightBarButtonItem  = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(reloadData))
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
         
         self.setupSubscribers()
         viewModel.getPlanets()
@@ -52,7 +53,13 @@ class PlanetsViewController: UIViewController, UITableViewDelegate, UITableViewD
         viewModel.$planets
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: {[unowned self] drinks in
-                self.tableView.reloadData()
+                if (drinks.count > 0){
+                    self.navigationItem.rightBarButtonItem?.isEnabled = false
+                    self.tableView.reloadData()
+                }else{
+                    self.navigationItem.rightBarButtonItem?.isEnabled = true
+                }
+                
             }).store(in: &cancellables)
         
         // loader subscriber
@@ -94,7 +101,13 @@ class PlanetsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:PlanetListTableViewCell = tableView.dequeueReusableCell(withIdentifier: "PlanetListTableViewCell") as! PlanetListTableViewCell
+        cell.tag = indexPath.row
         cell.configure(planet: viewModel.planets[indexPath.row])
+        
+        if(viewModel.url != "" && indexPath.row == viewModel.planets.count-1) {
+            viewModel.getPlanets()
+        }
+        
         return cell
     }
     
@@ -103,8 +116,7 @@ class PlanetsViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let planetDetailsVC = self.storyboard?.instantiateViewController(withIdentifier: "PlanetDetailsViewController") as! PlanetDetailsViewController
         planetDetailsVC.planet = viewModel.planets[indexPath.row]
-        self.navigationController?.present(
-            planetDetailsVC, animated: true)
+        self.navigationController?.present(planetDetailsVC, animated: true)
     }
 }
 

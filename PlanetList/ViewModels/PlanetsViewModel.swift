@@ -9,7 +9,7 @@ import Foundation
 
 final class PlanetsViewModel {
     
-    private let url = "https://swapi.dev/api/planets/"
+    public var url: String? = "https://swapi.dev/api/planets/"
     
     // Show this alert on view when changed
     @Published var alertMessage: String?
@@ -22,18 +22,21 @@ final class PlanetsViewModel {
     
     // Get planets from Server
     func getPlanets() {
-        self.isLoading = true
-        HttpRequestHandler.shared.request(endPoint: url, onSuccess: {[unowned self] data in
-            self.isLoading = false
-            do{
-                let responseObject = try JSONDecoder().decode(PlanetsResponse.self, from: data!)
-                self.planets = responseObject.results
-            }catch(let ex){
-                print("JSON ERROR : \(ex)")
-            }
-        }, onFailure: { error in
-            self.isLoading = false
-            self.alertMessage = "ERROR :  \(error)"
-        })
+        if let url = self.url {
+            self.isLoading = true
+            HttpRequestHandler.shared.request(endPoint: url, onSuccess: {[unowned self] data in
+                self.isLoading = false
+                do{
+                    let responseObject = try JSONDecoder().decode(PlanetsResponse.self, from: data!)
+                    self.planets = self.planets + responseObject.results
+                    self.url = responseObject.next
+                }catch(let ex){
+                    print("JSON ERROR : \(ex)")
+                }
+            }, onFailure: { error in
+                self.isLoading = false
+                self.alertMessage = "ERROR :  \(error)"
+            })
+        }
     }
 }
