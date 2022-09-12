@@ -13,12 +13,15 @@ class PlanetsViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    private let viewModel = PlanetsViewModel()
+    private let httpHandler = HttpRequestHandler()
+    private var viewModel :PlanetsViewModel!
     private var cancellables : Set<AnyCancellable> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Planets"
+        
+        self.viewModel = PlanetsViewModel(httpHandler: httpHandler)
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -102,7 +105,7 @@ class PlanetsViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:PlanetListTableViewCell = tableView.dequeueReusableCell(withIdentifier: "PlanetListTableViewCell") as! PlanetListTableViewCell
         cell.tag = indexPath.row
-        cell.configure(planet: viewModel.planets[indexPath.row])
+        cell.configure(planet: viewModel.planets[indexPath.row], httpHandler: httpHandler)
         
         if(viewModel.url != nil && indexPath.row == viewModel.planets.count-1) {
             viewModel.getPlanets()

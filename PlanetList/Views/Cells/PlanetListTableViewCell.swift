@@ -26,7 +26,7 @@ class PlanetListTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configure(planet: Planet) {
+    func configure(planet: Planet, httpHandler: HttpRequestHandler) {
         
         self.lbl_name.text = planet.name
         self.lbl_climate.text = planet.climate
@@ -38,15 +38,15 @@ class PlanetListTableViewCell: UITableViewCell {
         if let data = self.imageData {
             self.img_planet.image = UIImage(data: data)
         }else{
-            self.loadImageFromURL(url: planet.imageURL)
+            self.loadImageFromURL(url: planet.imageURL, httpHandler: httpHandler)
         }
     }
     
-    func loadImageFromURL(url: String) {
-        HttpRequestHandler.shared.request(endPoint: url, onSuccess: {[unowned self] data in
+    func loadImageFromURL(url: String, httpHandler: HttpRequestHandler) {
+        httpHandler.request(endPoint: url, onSuccess: {[weak self] data in
             if let data = data {
                 DispatchQueue.main.async {
-                    self.img_planet.image = UIImage(data: data)
+                    self?.img_planet.image = UIImage(data: data)
                 }
             }
         }, onFailure: { error in

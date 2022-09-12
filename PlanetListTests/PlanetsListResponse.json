@@ -1,0 +1,25 @@
+{
+    "count": 60,
+    "next": "https://swapi.dev/api/planets/?page=2",
+    "previous": "https://swapi.dev/api/planets/",
+    "results": [
+        {
+            "name": "Tatooine",
+            "orbital_period": "304",
+            "climate": "arid",
+            "gravity": "1 standard"
+        },
+        {
+            "name": "Alderaan",
+            "orbital_period": "364",
+            "climate": "temperate",
+            "gravity": "1 standard"
+        },
+        {
+            "name": "Yavin IV",
+            "orbital_period": "4818",
+            "climate": "temperate, tropical",
+            "gravity": "1 standard"
+        }
+    ]
+}

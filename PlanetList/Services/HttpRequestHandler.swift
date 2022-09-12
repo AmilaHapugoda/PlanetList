@@ -8,10 +8,13 @@
 import Foundation
 import Network
 
+protocol HttpRequestHandlerProtocol {
+    func request(endPoint: String,
+                 onSuccess: @escaping(Data?) -> Void,
+                 onFailure: @escaping(String) -> Void)
+}
 
-final class HttpRequestHandler : NSObject {
-    
-    static let shared = HttpRequestHandler()
+final class HttpRequestHandler : HttpRequestHandlerProtocol {
     
     func request(endPoint: String,
                  onSuccess: @escaping(Data?) -> Void,

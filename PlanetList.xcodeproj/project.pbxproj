@@ -13,7 +13,6 @@
 		607E996828CD9595005F0D8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607E996628CD9595005F0D8D /* Main.storyboard */; };
 		607E996A28CD9595005F0D8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607E996928CD9595005F0D8D /* Assets.xcassets */; };
 		607E996D28CD9595005F0D8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607E996B28CD9595005F0D8D /* LaunchScreen.storyboard */; };
-		607E997828CD9596005F0D8D /* PlanetListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607E997728CD9596005F0D8D /* PlanetListTests.swift */; };
 		607E998228CD9596005F0D8D /* PlanetListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607E998128CD9596005F0D8D /* PlanetListUITests.swift */; };
 		607E998428CD9596005F0D8D /* PlanetListUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607E998328CD9596005F0D8D /* PlanetListUITestsLaunchTests.swift */; };
 		607E999728CD9747005F0D8D /* PlanetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607E999628CD9747005F0D8D /* PlanetsViewModel.swift */; };
@@ -24,6 +23,10 @@
 		607E99A728CDC0A7005F0D8D /* PlanetDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607E99A628CDC0A7005F0D8D /* PlanetDetailsViewController.swift */; };
 		607E99AC28CE0BAC005F0D8D /* UIImageView+loadFromURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607E99AB28CE0BAC005F0D8D /* UIImageView+loadFromURL.swift */; };
 		60C1AD6A28CEDFE600652701 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C1AD6928CEDFE600652701 /* NetworkResponse.swift */; };
+		60C1AD6F28CFA71B00652701 /* MockHttpRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C1AD6E28CFA71B00652701 /* MockHttpRequestHandler.swift */; };
+		60C1AD7128CFA89100652701 /* PlanetsListResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 60C1AD7028CFA89100652701 /* PlanetsListResponse.json */; };
+		60C1AD7328CFA99D00652701 /* Mockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C1AD7228CFA99D00652701 /* Mockable.swift */; };
+		60C1AD7528CFB0F000652701 /* PlanetsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C1AD7428CFB0F000652701 /* PlanetsViewModelTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +56,6 @@
 		607E996C28CD9595005F0D8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		607E996E28CD9595005F0D8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607E997328CD9596005F0D8D /* PlanetListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlanetListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		607E997728CD9596005F0D8D /* PlanetListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetListTests.swift; sourceTree = "<group>"; };
 		607E997D28CD9596005F0D8D /* PlanetListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlanetListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607E998128CD9596005F0D8D /* PlanetListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetListUITests.swift; sourceTree = "<group>"; };
 		607E998328CD9596005F0D8D /* PlanetListUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetListUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -65,6 +67,10 @@
 		607E99A628CDC0A7005F0D8D /* PlanetDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetDetailsViewController.swift; sourceTree = "<group>"; };
 		607E99AB28CE0BAC005F0D8D /* UIImageView+loadFromURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+loadFromURL.swift"; sourceTree = "<group>"; };
 		60C1AD6928CEDFE600652701 /* NetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
+		60C1AD6E28CFA71B00652701 /* MockHttpRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHttpRequestHandler.swift; sourceTree = "<group>"; };
+		60C1AD7028CFA89100652701 /* PlanetsListResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PlanetsListResponse.json; sourceTree = "<group>"; };
+		60C1AD7228CFA99D00652701 /* Mockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mockable.swift; sourceTree = "<group>"; };
+		60C1AD7428CFB0F000652701 /* PlanetsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsViewModelTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,7 +138,10 @@
 		607E997628CD9596005F0D8D /* PlanetListTests */ = {
 			isa = PBXGroup;
 			children = (
-				607E997728CD9596005F0D8D /* PlanetListTests.swift */,
+				60C1AD6E28CFA71B00652701 /* MockHttpRequestHandler.swift */,
+				60C1AD7028CFA89100652701 /* PlanetsListResponse.json */,
+				60C1AD7228CFA99D00652701 /* Mockable.swift */,
+				60C1AD7428CFB0F000652701 /* PlanetsViewModelTest.swift */,
 			);
 			path = PlanetListTests;
 			sourceTree = "<group>";
@@ -330,6 +339,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60C1AD7128CFA89100652701 /* PlanetsListResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,7 +374,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607E997828CD9596005F0D8D /* PlanetListTests.swift in Sources */,
+				60C1AD6F28CFA71B00652701 /* MockHttpRequestHandler.swift in Sources */,
+				60C1AD7528CFB0F000652701 /* PlanetsViewModelTest.swift in Sources */,
+				60C1AD7328CFA99D00652701 /* Mockable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
