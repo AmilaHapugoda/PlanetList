@@ -27,7 +27,7 @@ final class PlanetsViewModel {
             HttpRequestHandler.shared.request(endPoint: url, onSuccess: {[unowned self] data in
                 self.isLoading = false
                 do{
-                    let responseObject = try JSONDecoder().decode(PlanetsResponse.self, from: data!)
+                    let responseObject = try JSONDecoder().decode(NetworkResponse<Planet>.self, from: data!)
                     self.planets = self.planets + responseObject.results
                     self.url = responseObject.next
                 }catch(let ex){

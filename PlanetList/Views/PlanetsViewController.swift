@@ -104,7 +104,7 @@ class PlanetsViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.tag = indexPath.row
         cell.configure(planet: viewModel.planets[indexPath.row])
         
-        if(viewModel.url != "" && indexPath.row == viewModel.planets.count-1) {
+        if(viewModel.url != nil && indexPath.row == viewModel.planets.count-1) {
             viewModel.getPlanets()
         }
         
